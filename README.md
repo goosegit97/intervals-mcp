@@ -9,6 +9,7 @@
 ![Model Context Protocol](https://img.shields.io/badge/MCP-compatible-6E56CF)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 Ask your AI assistant things like *"how did my training load trend this week?"*, *"add a 3×10min
 threshold bike workout to Thursday"*, or *"summarise my sleep and HRV before tomorrow's session"* —
@@ -195,6 +196,12 @@ can use it. Setup mirrors the Claude examples above.
 
 **Can it delete my data by accident?** The write tools are single-id and confirm-gated, and there
 is no bulk-delete path — see [the safety section](#the-write-tools-are-safe-by-design).
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE).
 
 ---
 
