@@ -1,7 +1,6 @@
 // Package intervals implements the read-only (and gated write) MCP tools that
-// wrap the Intervals.icu API. It is the reference implementation for gaggle's
-// MCP tool structure: an Intervals HTTP client, typed tool inputs, and tool
-// registration. Each tool returns the raw JSON Intervals.icu sends, so no
+// wrap the Intervals.icu API: an Intervals HTTP client, typed tool inputs, and
+// tool registration. Each tool returns the raw JSON Intervals.icu sends, so no
 // fields are dropped.
 package intervals
 
