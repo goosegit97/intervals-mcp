@@ -1,0 +1,14 @@
+---
+# Filesystem layout for the intervals-mcp service on the box.
+app_prefix: /opt/intervals-mcp
+app_bin_dir: "{{ app_prefix }}/bin"
+app_etc_dir: /etc/intervals-mcp
+
+# intervals service. Single-user: one deployment serves one Intervals.icu account,
+# gated by a single shared bearer token (MCP_BEARER_TOKEN).
+intervals_service_user: intervals
+intervals_listen_addr: "127.0.0.1:8081"
+# Secrets resolve from vault (group_vars/all/vault.yml):
+#   intervals_api_key     -> vault_intervals_api_key
+#   intervals_athlete_id  -> vault_intervals_athlete_id
+#   mcp_bearer_token      -> vault_mcp_bearer_token

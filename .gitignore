@@ -1,0 +1,36 @@
+# ---- Secrets / local config ----
+.env
+.env.*
+!.env.example
+# Secret files referenced by systemd EnvironmentFile=
+*.secret
+*.pem
+# Ansible vault password files
+.vault_pass
+vault_pass.txt
+# Ansible local-only files (real inventory, decrypted/secret vars, installed collections)
+ansible/inventory.ini
+ansible/group_vars/vault.yml
+ansible/group_vars/all/vault.yml
+ansible/collections/
+# Staged service binaries (built with GOOS=linux go build -o ansible/roles/app/files/intervals)
+ansible/roles/app/files/*
+!ansible/roles/app/files/.gitkeep
+
+# ---- Go ----
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.txt
+
+# ---- Editors / OS ----
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

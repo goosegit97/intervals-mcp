@@ -1,0 +1,9 @@
+---
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Restart intervals
+  ansible.builtin.systemd:
+    name: intervals
+    state: restarted

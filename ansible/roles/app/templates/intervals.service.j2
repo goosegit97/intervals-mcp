@@ -1,0 +1,51 @@
+# Managed by Ansible (roles/app). intervals-mcp service.
+[Unit]
+Description=intervals-mcp server (Intervals.icu)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{ intervals_service_user }}
+Group={{ intervals_service_user }}
+ExecStart={{ app_bin_dir }}/intervals
+EnvironmentFile={{ app_etc_dir }}/intervals.env
+Restart=on-failure
+RestartSec=2
+
+# Hardening. The commented directives below need on-box verification
+# (`systemd-analyze security intervals`) on the OpenVZ kernel before enabling.
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectControlGroups=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectClock=true
+ProtectHostname=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictSUIDSGID=true
+RestrictRealtime=true
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_INET AF_INET6
+LockPersonality=true
+RemoveIPC=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+UMask=0077
+# MemoryDenyWriteExecute=true
+# SystemCallFilter=@system-service
+# SystemCallFilter=~@privileged ~@resources
+# The service binds 127.0.0.1 for inbound, but must reach api.intervals.icu over
+# HTTPS for outbound, so egress is required. NOTE: IPAddress* filtering needs
+# cgroup-BPF and is a no-op on OpenVZ; real egress control must be done at the
+# host firewall / network layer.
+IPAddressAllow=any
+
+[Install]
+WantedBy=multi-user.target
