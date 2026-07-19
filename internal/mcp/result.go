@@ -1,6 +1,5 @@
-// Package mcp holds helpers shared by the gaggle MCP services for shaping tool
-// results. It is deliberately transport-agnostic so intervals and garmin can
-// reuse it without depending on each other.
+// Package mcp holds the shared HTTP-serving and tool-result helpers for the
+// intervals MCP service. It is deliberately transport-agnostic.
 package mcp
 
 import (
